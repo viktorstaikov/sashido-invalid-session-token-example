@@ -59,18 +59,18 @@ export class AppComponent implements OnInit {
 
   private _login(username, password) {
     return this.http
-      .post(
-        this.serverUrl + "functions/login",
-        { username, password },
-        {
-          headers: {
-            "X-Parse-Application-Id": this.appId,
-            "X-Parse-REST-API-Key": this.restKey
-          }
+      .get(this.serverUrl + "/login", {
+        params: {
+          username,
+          password
+        },
+        headers: {
+          "X-Parse-Application-Id": this.appId,
+          "X-Parse-REST-API-Key": this.restKey
         }
-      )
+      })
       .toPromise<any>()
-      .then(r => (this.token = r.result.sessionToken));
+      .then(r => (this.token = r.sessionToken));
   }
 
   private _checkToken() {
