@@ -3,7 +3,7 @@
   Start editing to see some magic happen :)
 </p>
 
-<button (click)="loginFlow()">Login flow</button>
+<button (click)="loginFlow()">Login flow that may crash</button>
 <button (click)="loginFlowWithTimeout()">Login flow with 2sec timeout</button>
 
 <div *ngIf="!pending && error">Error: {{error | json}}</div>
