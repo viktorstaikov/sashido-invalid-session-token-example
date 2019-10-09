@@ -4,4 +4,8 @@
 </p>
 
 <button (click)="loginFlow()">Login flow</button>
-<button (click)="loginFlowWithTimeout()">Login flow with timeout</button>
+<button (click)="loginFlowWithTimeout()">Login flow with 2sec timeout</button>
+
+<div *ngIf="!pending && error">Error: {{error | json}}</div>
+<div *ngIf="!pending &&!error">No error!</div>
+<div *ngIf="pending">pending...</div> 
